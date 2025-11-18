@@ -1,7 +1,12 @@
+from __future__ import annotations
+
 import datetime
-from typing import Dict, Tuple
+from typing import Dict, Tuple, TYPE_CHECKING
+
 from app.utils import format_money
-from app.customer import Customer
+
+if TYPE_CHECKING:
+    from app.customer import Customer
 
 
 class Shop:
@@ -21,7 +26,7 @@ class Shop:
             total += self.products[item] * amount
         return total
 
-    def print_receipt(self, customer: Customer) -> None:
+    def print_receipt(self, customer: "Customer") -> None:
         now = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         print(f"Date: {now}")
         print(f"Thanks, {customer.name}, for your purchase!")

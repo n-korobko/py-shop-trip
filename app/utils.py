@@ -6,5 +6,5 @@ def distance(p1: tuple[float, float], p2: tuple[float, float]) -> float:
 
 
 def format_money(value: float) -> str:
-    formatted = f"{value: .2f}"
+    formatted = format(value, ".2f")
     return formatted.rstrip("0").rstrip(".")
